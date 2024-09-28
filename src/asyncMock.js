@@ -19,7 +19,7 @@ const products =[
     name: 'iPad Air (M2)',
     price: 500000,
     category: 'tablet',
-    img: 'https://d1aqw5mz0wngqe.cloudfront.net/images/spree/images/2464850/attachments/large/Apple_iPad_Air_11_M2_WiFi_Blue_1.jpg?1715280283',
+    img: 'https://www.gsmpro.cl/cdn/shop/files/ipad-air-2024-11-pulgadas-2.jpg?v=1718042243&width=1200',
     stock: 15,
     description:'El iPad Air cuenta con los superpoderes del chip M2 de Apple y, por primera vez, está disponible en 13 pulgadas.'},
 
@@ -30,5 +30,23 @@ export const getProducts = () => {
         setTimeout(() => {
             resolve(products)
         }, 1000)
-    })
-}
+    });
+};
+
+export const getProductById = (productId) =>{
+    return new Promise((resolve) =>{
+        setTimeout(() => {
+            resolve(products.find(produ => produ.id === productId))
+        }, 1000)
+    });
+};
+
+export const getProductsByCategory = (categoryId) => {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            const filteredProducts = products.filter(product => product.category === categoryId);
+            console.log(filteredProducts); 
+            resolve(filteredProducts);
+        }, 1000);
+    });
+};
