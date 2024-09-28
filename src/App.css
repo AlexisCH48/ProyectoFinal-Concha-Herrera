@@ -1,0 +1,22 @@
+.App {
+    margin: 0 auto;
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    place-items: center;
+    min-height: 100vh;
+}
+
+h1{
+    filter: drop-shadow(
+        0 0 5px rgba(0, 0, 0, .8)
+    );
+}
+
+
+
+
+
+
+
+
