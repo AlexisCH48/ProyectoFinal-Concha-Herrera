@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+.CardImg{
+    max-width: 100%;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.Card {
+    position: relative;
+    background: white;
+    max-width: 500px;
+    margin: 0 auto;
+    margin-top: 40px;
+    padding: 50px;
+    border-radius: 20px;
+    filter: drop-shadow(
+        0 0 2px rgba(0, 0, 0, 0.302)
+    );
+}
+
+.CardBody {
+    margin: 0;
+}
+
+.CardTitle{
+    padding: 0;
+    margin-top: 15px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.CardTextContainer {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    padding-top: 15px;
+}
+
+.CardPrice, .CardStock {
+    margin: 0; 
+}
+
+.CardPrice {
+    color: #028ac8;
+    font-size: 1.30em;
+    font-weight: bold;
+}
+
+.CardStock {
+    color: #425c69;
+    font-size: 1.25em;
+    font-weight: bolder;
+}
+
+.Option {
+    background: #46a2bf;
+    color: rgb(1, 47, 57);
+    width: 78%;
+    height: auto;
+    font-size: 1.15em;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 25px auto 5px;
+    padding: 15px 80px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: 300ms;
+    text-decoration: none;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    text-align: center;
+    padding-top: 15px;
+}
+
+.Option:hover {
+    background: grey;
+    color: white;
+    transition: 300ms;
+}

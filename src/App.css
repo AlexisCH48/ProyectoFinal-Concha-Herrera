@@ -8,9 +8,17 @@
 }
 
 h1{
+    display: flex;
+    justify-content: center;
+    place-items: center;
     filter: drop-shadow(
         0 0 5px rgba(0, 0, 0, .8)
     );
+    text-shadow: 
+        -0.5px -0.5px 0 black, 
+        0.5px -0.5px 0 black, 
+        -0.5px 0.5px 0 black, 
+        0.5px 0.5px 0 black;
 }
 
 

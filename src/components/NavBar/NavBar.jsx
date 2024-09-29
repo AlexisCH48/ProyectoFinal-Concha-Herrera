@@ -14,13 +14,13 @@ const NavBar = () => {
         <Navbar expand="lg" className="nav">
             <Container>
                 <Navbar.Brand>
-                    <Link to='/'>
-                    <img
+                    <Link to='/' className='LinkBrand'>
+                    <img 
                         alt="brand-logo"
                         src={BrandLogo}
                         className="d-inline-block align-middle"
                     />{' '}
-                    <span>TechnoWorld</span>
+                    <span className='BrandText'>TechnoWorld</span>
                     </Link>
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />

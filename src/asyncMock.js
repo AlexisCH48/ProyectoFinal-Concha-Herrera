@@ -3,7 +3,7 @@ const products =[
     name: 'MSI RAIDER GE78HX 13VH GAMING',
     price: 300000,
     category: 'laptop',
-    img: 'https://b2482810.smushcdn.com/2482810/wp-content/uploads/2024/09/GE78-HX.jpg?lossy=2&strip=1&webp=1',
+    img: 'https://www.tradeinn.com/f/13985/139855444/msi-portatil-gaming-raider-ge78hx-13vh-066xes-17-i7-13700hx-32gb-1tb-ssd-rtx-4080.webp',
     stock: 10,
     description:'MSI RAIDER GE78HX 13VH GAMING Core™ i9-13980HX 1TB SSD 32GB 17″ (2560×1600) 240Hz WIN11 NVIDIA® RTX 4070 8192MB BLACK Backlit ENGKeyboard'},
 

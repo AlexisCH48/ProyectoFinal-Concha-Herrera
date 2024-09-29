@@ -23,8 +23,12 @@ const ItemDetailContainer = () => {
     }, [itemId]);
 
     return(
-        <div className='ItemDetailContainer'>
-            {product ? <ItemDetail {...product}/> : <div>Cargando...</div>}
+        <div>
+            {product ? <ItemDetail {...product}/> : 
+                <div class="loading">
+                    <span class="loading-dots" data-dot="•">•</span>
+                    <p class="loading-text">Cargando...</p>
+                </div>}
         </div>
     )
 }
