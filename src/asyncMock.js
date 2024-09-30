@@ -1,11 +1,11 @@
 const products =[
     {id: 1,
-    name: 'MSI RAIDER GE78HX 13VH GAMING',
+    name: 'Asus Rog Strix G16 - G614JV-AS73',
     price: 300000,
     category: 'laptop',
-    img: 'https://www.tradeinn.com/f/13985/139855444/msi-portatil-gaming-raider-ge78hx-13vh-066xes-17-i7-13700hx-32gb-1tb-ssd-rtx-4080.webp',
+    img: 'https://www.gsmpro.cl/cdn/shop/files/asus-rog-strix-g16-g614jv-as73.jpg?v=1697216784&width=1000',
     stock: 10,
-    description:'MSI RAIDER GE78HX 13VH GAMING Core™ i9-13980HX 1TB SSD 32GB 17″ (2560×1600) 240Hz WIN11 NVIDIA® RTX 4070 8192MB BLACK Backlit ENGKeyboard'},
+    description:'ASUS ROG Strix G16 tiene una pantalla de 16 pulgadas con resolución Full HD. El procesador es un Intel® CoreTM i7 de 13ma Generación con una frecuencia base eficiente de núcleo de 3.6 GHz y, en modo turbo, puede alcanzar 4.9 GHz.'},
 
     {id:2,
     name: 'Zte Nubia Red Magic 9 Pro',
