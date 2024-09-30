@@ -1,16 +1,24 @@
-import './ItemDetail.css'
-import ItemCount from '../ItemCount/ItemCount'
+import './ItemDetail.css';
+import ItemCount from '../ItemCount/ItemCount';
 import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Stack from 'react-bootstrap/Stack';
+import { useNavigate } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 
 const ItemDetail = ({ id, name, img, category, description, price, stock }) => {
+    const navigate = useNavigate();
+
     return (
         <Card className='CardDetail'>
+            <button className="back-button" onClick={() => navigate(-1)}>
+                <FontAwesomeIcon icon={faArrowLeft} /> Volver
+            </button>
             <Card.Body className='CardBody'>
                 <Row>
-                    <Col md={4} className='d-flex justify-content-center' >
+                    <Col md={4} className='d-flex justify-content-center'>
                         <Card.Img className='CardImgDetail' src={img} alt={name} />
                     </Col>
                     <Col md={8} className='d-flex justify-content-center'>
@@ -40,4 +48,4 @@ const ItemDetail = ({ id, name, img, category, description, price, stock }) => {
     );
 }
 
-export default ItemDetail
+export default ItemDetail;

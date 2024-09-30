@@ -4,6 +4,7 @@
     background: white;
     padding: 50px;
     border-radius: 20px;
+    position: relative; 
     filter: drop-shadow(
         0 0 2px rgba(0, 0, 0, 0.302)
     );
@@ -52,5 +53,27 @@
 .CardPriceDetail{
     font-size: 1.30em;
     font-weight: bold;
+}
+
+.back-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #46a2bf;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.back-button:hover {
+    background-color: #0056b3;
+}
+
+.back-button svg {
+    margin-right: 8px;
 }
 
