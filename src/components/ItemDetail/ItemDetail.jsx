@@ -7,8 +7,24 @@ import Stack from 'react-bootstrap/Stack';
 import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import { CartContext } from '../../context/CartContext';
+import { useContext } from 'react';
 
 const ItemDetail = ({ id, name, img, category, description, price, stock }) => {
+    const [quantityAdded, setQuantityAdded] = useState (0)
+
+    const {addItem} = useContext(CartContext)
+
+    const handleOnAdd = (quantity) => {
+        setQuantityAdded(quantity)
+
+        const item = {
+            id, name, price
+        }
+
+        addItem(item, quantity)
+    }
+
     const navigate = useNavigate();
 
     return (
