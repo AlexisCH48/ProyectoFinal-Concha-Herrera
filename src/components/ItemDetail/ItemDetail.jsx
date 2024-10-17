@@ -8,22 +8,21 @@ import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { CartContext } from '../../context/CartContext';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 
 const ItemDetail = ({ id, name, img, category, description, price, stock }) => {
-    const [quantityAdded, setQuantityAdded] = useState (0)
-
-    const {addItem} = useContext(CartContext)
+    const [quantityAdded, setQuantityAdded] = useState(0);
+    const { addItem, cart } = useContext(CartContext);
 
     const handleOnAdd = (quantity) => {
-        setQuantityAdded(quantity)
-
+        setQuantityAdded(quantity);
         const item = {
             id, name, price
-        }
-
-        addItem(item, quantity)
-    }
+        };
+        addItem(item, quantity);
+        console.log("Producto añadido: ", item);
+        console.log("Cantidad añadida: ", quantity);
+    };
 
     const navigate = useNavigate();
 
@@ -53,7 +52,7 @@ const ItemDetail = ({ id, name, img, category, description, price, stock }) => {
                                     <Card.Text className='CardPriceDetail'>Precio: ${price}</Card.Text>
                                 </div>
                                 <div className="p-2">
-                                    <ItemCount className='CardItemCount' initial={1} stock={stock} onAdd={(quantity) => console.log('cantidad agregada', quantity)}/>
+                                    <ItemCount className='CardItemCount' initial={1} stock={stock} onAdd={handleOnAdd} />
                                 </div>
                             </Stack>
                         </Card.Body>
