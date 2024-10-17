@@ -15,13 +15,18 @@ const ItemDetail = ({ id, name, img, category, description, price, stock }) => {
     const { addItem, cart } = useContext(CartContext);
 
     const handleOnAdd = (quantity) => {
-        setQuantityAdded(quantity);
-        const item = {
-            id, name, price
-        };
-        addItem(item, quantity);
-        console.log("Producto añadido: ", item);
-        console.log("Cantidad añadida: ", quantity);
+        const itemInCart = cart.find(item => item.id === id);
+        const totalQuantity = itemInCart ? itemInCart.quantity + quantity : quantity;
+
+        if (totalQuantity <= stock) {
+            setQuantityAdded(quantity);
+            const item = { id, name, price, stock };
+            addItem(item, quantity);
+            console.log("Producto añadido: ", item);
+            console.log("Cantidad añadida: ", quantity);
+        } else {
+            console.error('Cantidad solicitada excede el stock disponible');
+        }
     };
 
     const navigate = useNavigate();

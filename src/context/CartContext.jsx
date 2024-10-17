@@ -1,7 +1,8 @@
 import { createContext, useState, useEffect } from "react";
 
 export const CartContext = createContext({
-    cart: []
+    cart: [],
+    total: 0
 });
 
 export const CartProvider = ({ children }) => {
@@ -9,25 +10,39 @@ export const CartProvider = ({ children }) => {
         const savedCart = localStorage.getItem('cart');
         return savedCart ? JSON.parse(savedCart) : [];
     });
-
     const [totalQuantity, setTotalQuantity] = useState(0);
+    const [total, setTotal] = useState(0);
 
     useEffect(() => {
         localStorage.setItem('cart', JSON.stringify(cart));
         const quantity = cart.reduce((acc, prod) => acc + prod.quantity, 0);
         setTotalQuantity(quantity);
+
+        const totalPrice = cart.reduce((acc, prod) => acc + (prod.price * prod.quantity), 0);
+        setTotal(totalPrice);
     }, [cart]);
 
     const addItem = (item, quantity) => {
-        if (!isInCart(item.id)) {
-            setCart(prev => [...prev, { ...item, quantity }]);
+        const existingItem = cart.find(prod => prod.id === item.id);
+        const availableStock = item.stock;
+
+        if (!existingItem) {
+            if (quantity <= availableStock) {
+                setCart(prev => [...prev, { ...item, quantity }]);
+            } else {
+                console.error('Cantidad solicitada excede el stock disponible');
+            }
         } else {
-            setCart(prev => prev.map(prod => prod.id === item.id ? { ...prod, quantity: prod.quantity + quantity } : prod));
+            const newQuantity = existingItem.quantity + quantity;
+            if (newQuantity <= availableStock) {
+                setCart(prev => prev.map(prod => prod.id === item.id ? { ...prod, quantity: newQuantity } : prod));
+            } else {
+                console.error('Cantidad solicitada excede el stock disponible');
+            }
         }
     };
 
     const removeItem = (itemId) => {
-        console.log(`Eliminando producto con id: ${itemId}`); // Añade esto para depurar
         const cartUpdated = cart.filter(prod => prod.id !== itemId);
         setCart(cartUpdated);
     };
@@ -41,7 +56,7 @@ export const CartProvider = ({ children }) => {
     };
 
     return (
-        <CartContext.Provider value={{ cart, addItem, removeItem, clearCart, totalQuantity }}>
+        <CartContext.Provider value={{ cart, addItem, removeItem, clearCart, total, totalQuantity }}>
             {children}
         </CartContext.Provider>
     );
