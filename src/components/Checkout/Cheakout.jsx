@@ -3,14 +3,18 @@ import CheckoutForm from '../CheckoutForm/CheckoutForm';
 import { db } from "../../Firebase/firebaseConfig";
 import { CartContext } from '../../context/CartContext';
 import { collection, getDocs, query, where, documentId, writeBatch, Timestamp, addDoc } from 'firebase/firestore';
+import { useNavigate } from 'react-router-dom';
+import { Button } from 'react-bootstrap';
 
 const Checkout = () => {
     const [orderId, setOrderdId] = useState('');
-    const [loading, setLoading] = useState(false); // Inicializa en falso
+    const [loading, setLoading] = useState(false);
     const { cart, total, clearCart } = useContext(CartContext);
+    const navigate = useNavigate(); 
+
 
     const createOrder = async ({ name, phone, email }) => {
-        setLoading(true); // Corrige a setLoading
+        setLoading(true);
         try {
             const objOrder = {
                 buyer: {
@@ -28,7 +32,7 @@ const Checkout = () => {
             const productsAddedFromFirestore = await getDocs(query(productsRef, where(documentId(), 'in', ids)));
             const { docs } = productsAddedFromFirestore;
 
-            docs.forEach(doc => { // Corrige a forEach
+            docs.forEach(doc => { 
                 const dataDoc = doc.data();
                 const stockDb = dataDoc.stock;
 
@@ -42,10 +46,10 @@ const Checkout = () => {
                 }
             });
 
-            if (outOfStock.length === 0) { // Corrige a length
+            if (outOfStock.length === 0) { 
                 await batch.commit();
                 const orderRef = collection(db, 'orders');
-                const orderAdded = await addDoc(orderRef, objOrder); // Corrige a addDoc
+                const orderAdded = await addDoc(orderRef, objOrder);
                 setOrderdId(orderAdded.id);
                 clearCart();
             } else {
@@ -54,7 +58,7 @@ const Checkout = () => {
         } catch (error) {
             console.log(error);
         } finally {
-            setLoading(false); // Corrige a setLoading
+            setLoading(false); 
         }
     };
 
@@ -70,6 +74,7 @@ const Checkout = () => {
         <div>
             <h1>Checkout</h1>
             <CheckoutForm onConfirm={createOrder} />
+            <Button variant='secondary' className='mt-3' onClick={() => navigate(-1)}>Volver Atrás</Button>
         </div>
     );
 };

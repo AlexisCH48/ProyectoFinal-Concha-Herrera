@@ -1,24 +1,9 @@
-
-// const CartItem = ({ id, name, price, quantity, removeFromCart }) => {
-//     return (
-//         <div className='cart-item'>
-//             <span>{name}</span>
-//             <span>${price}</span>
-//             <div className='quantity-control'>
-//                 <span>{quantity}</span>
-//                 <button onClick={() => removeFromCart(id)}>Eliminar</button>
-//             </div>
-//         </div>
-//     );
-// }
-
-
 import React, { useContext } from 'react';
-import { Card, Button, Row, Col } from 'react-bootstrap';
+import { Card, Button, Row, Col, InputGroup, FormControl } from 'react-bootstrap';
 import { CartContext } from '../../context/CartContext';
 
-const CartItem = ({ id, name, price, quantity }) => {
-    const { removeItem } = useContext(CartContext);
+const CartItem = ({ id, name, price, quantity, stock }) => {
+    const { removeItem, incrementQuantity, decrementQuantity } = useContext(CartContext);
 
     return (
         <Card className='mb-3'>
@@ -27,7 +12,13 @@ const CartItem = ({ id, name, price, quantity }) => {
                     <Col md={6}>
                         <Card.Title>{name}</Card.Title>
                         <Card.Text>Precio: ${price}</Card.Text>
-                        <Card.Text>Cantidad: {quantity}</Card.Text>
+                        <div className="quantity-control">
+                            <InputGroup>
+                                <Button variant="outline-secondary" onClick={() => decrementQuantity(id)}>-</Button>
+                                <FormControl value={quantity} readOnly />
+                                <Button variant="outline-secondary" onClick={() => incrementQuantity(id)}>+</Button>
+                            </InputGroup>
+                        </div>
                     </Col>
                     <Col md={6} className='text-end'>
                         <Button variant='danger' onClick={() => removeItem(id)}>Eliminar</Button>
