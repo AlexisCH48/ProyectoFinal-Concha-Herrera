@@ -15,8 +15,8 @@ const Footer = () => {
                     <Col md={4} className="footer-col">
                         <h4 className="footer-title">Enlaces Rápidos</h4>
                         <ul className="footer-links">
-                            <li><a href="/about">Acerca de Nosotros</a></li>
                             <li><a href="/contact">Contacto</a></li>
+                            <li><a href="/about">Acerca de Nosotros</a></li>
                             <li><a href="/privacy">Política de Privacidad</a></li>
                             <li><a href="/terms">Términos y Condiciones</a></li>
                         </ul>

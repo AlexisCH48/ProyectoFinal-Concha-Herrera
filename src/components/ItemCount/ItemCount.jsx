@@ -1,22 +1,28 @@
-import './ItemCount.css'
-import { useState } from 'react'
+import './ItemCount.css';
+import { useState } from 'react';
+import { toast } from 'react-toastify';
 
-const ItemCount = ({stock, initial, onAdd}) =>{
-    const [quantity, setQuantity] = useState(initial)
+const ItemCount = ({ stock, initial, onAdd }) => {
+    const [quantity, setQuantity] = useState(initial);
 
-    const increment =() => {
+    const increment = () => {
         if (quantity < stock) {
-            setQuantity(quantity+1)
+            setQuantity(quantity + 1);
         }
-    }
+    };
 
-    const decrement =() => {
+    const decrement = () => {
         if (quantity > 1) {
-            setQuantity(quantity - 1)
+            setQuantity(quantity - 1);
         }
-    }
+    };
 
-    return(
+    const handleAddToCart = () => {
+        onAdd(quantity);
+        toast.success(`${quantity} Producto agregado al carrito!`);
+    };
+
+    return (
         <div className='Counter'>
             <div className='Controls'>
                 <button className='Button' onClick={decrement}>-</button>
@@ -24,12 +30,12 @@ const ItemCount = ({stock, initial, onAdd}) =>{
                 <button className='Button' onClick={increment}>+</button>
             </div>
             <div className='addButton'>
-                <button className='ButtonCart' onClick={() => onAdd(quantity)} disabled={!stock}>
-                    agregar al carrito
+                <button className='ButtonCart' onClick={handleAddToCart} disabled={!stock}>
+                    Agregar al carrito
                 </button>
             </div>
         </div>
-    )
+    );
 }
 
-export default ItemCount
+export default ItemCount;

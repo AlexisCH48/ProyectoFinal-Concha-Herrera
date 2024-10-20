@@ -1,10 +1,18 @@
 import React, { useContext } from 'react';
 import { Card, Button, Row, Col, InputGroup, FormControl } from 'react-bootstrap';
 import { CartContext } from '../../context/CartContext';
-import './CartItem.css'
+import { toast } from 'react-toastify';
+import './CartItem.css';
 
-const CartItem = ({ id, name, price, quantity, stock}) => {
+const CartItem = ({ id, name, price, quantity, stock }) => {
     const { removeItem, incrementQuantity, decrementQuantity } = useContext(CartContext);
+
+    const handleRemoveItem = () => {
+        removeItem(id);
+        toast.error(`${name} eliminado del carrito`, {
+            position: "top-center",
+        });
+    };
 
     return (
         <Card className='mb-3' id='cartItem'>
@@ -27,7 +35,7 @@ const CartItem = ({ id, name, price, quantity, stock}) => {
                             </InputGroup>
                         </div>
                         <div className='cartItemButton'>
-                            <Button variant='danger' onClick={() => removeItem(id)}>Eliminar</Button>
+                            <Button variant='danger' onClick={handleRemoveItem}>Eliminar</Button>
                         </div>
                     </Card.Body>
                 </Col>

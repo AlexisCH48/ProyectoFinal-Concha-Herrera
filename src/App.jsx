@@ -9,6 +9,8 @@ import Cart from './components/Cart/Cart';
 import { CartProvider } from './context/CartContext';
 import Checkout from './components/Checkout/Checkout';
 import Footer from './components/Footer/Footer';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
@@ -16,6 +18,17 @@ function App() {
       <CartProvider>
         <NavBar />
         <div className='App'>
+          <ToastContainer
+            position="top-right" 
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+          />
           <div className="Content">
             <Routes>
               <Route path='/' element={<ItemListContainer greeting='Bienvenidos a nuestra pagina' />} />
