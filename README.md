@@ -66,9 +66,6 @@ Para ejecutar este proyecto en tu máquina local, sigue estos pasos:
     }
     ```
 
-
-
-
 5. **Ejecuta la aplicación**:
     ```sh
     npm start
