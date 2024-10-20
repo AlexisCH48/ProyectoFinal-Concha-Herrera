@@ -1,0 +1,40 @@
+.cartWidget {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+}
+
+.cartWidget:hover {
+    background-color: #0056b3;
+}
+
+.cartIcon {
+    width: 60px;
+    height: 50px;
+    margin-right: 5px;
+}
+
+.cartQuantity {
+    font-size: 1.35rem;
+    color: #f0f0f0;
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+    .cartWidget {
+        padding: 8px;
+    }
+
+    .cartIcon {
+        width: 28px;
+        height: 28px;
+    }
+
+    .cartQuantity {
+        font-size: 1rem;
+    }
+}

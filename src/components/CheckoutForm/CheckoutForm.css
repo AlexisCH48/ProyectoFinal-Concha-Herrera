@@ -1,0 +1,50 @@
+.checkoutForm {
+    width: 100%;
+    background-color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.checkoutForm .form-group {
+    margin-bottom: 1.5rem;
+}
+
+.checkoutForm label {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #495057;
+    padding-top: 1.2rem;
+}
+
+.checkoutForm input {
+    padding: 0.75rem;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 1px solid #ced4da;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.checkoutForm input:focus {
+    border-color: #80bdff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.25);
+}
+
+.checkoutForm button {
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 1.2rem;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    
+}
+
+.checkoutForm button:hover {
+    background-color: #218838;
+}

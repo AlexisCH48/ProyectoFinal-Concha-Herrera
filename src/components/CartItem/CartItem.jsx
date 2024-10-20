@@ -1,30 +1,37 @@
 import React, { useContext } from 'react';
 import { Card, Button, Row, Col, InputGroup, FormControl } from 'react-bootstrap';
 import { CartContext } from '../../context/CartContext';
+import './CartItem.css'
 
-const CartItem = ({ id, name, price, quantity, stock }) => {
+const CartItem = ({ id, name, price, quantity, stock}) => {
     const { removeItem, incrementQuantity, decrementQuantity } = useContext(CartContext);
 
     return (
-        <Card className='mb-3'>
-            <Card.Body>
-                <Row className='align-items-center'>
-                    <Col md={6}>
-                        <Card.Title>{name}</Card.Title>
-                        <Card.Text>Precio: ${price}</Card.Text>
-                        <div className="quantity-control">
-                            <InputGroup>
+        <Card className='mb-3' id='cartItem'>
+            <Row className='g-0 w-100 align-items-center'>
+                <Col md={12}>
+                    <Card.Body className='cartItemGrid'>
+                        <div className='cartItemDetails'>
+                            <Card.Title className="cartItemHeader">{name}</Card.Title>
+                            <div className='cartItemMiddleContainer'>
+                                <Card.Text className="cartItemMiddle">Precio: ${price}</Card.Text>
+                                <Card.Text className="cartItemMiddle">Cantidad a comprar: {quantity}</Card.Text>
+                                <Card.Text className="cartItemMiddle">Stock: {stock}</Card.Text>
+                            </div>
+                        </div>
+                        <div className="quantityControl">
+                            <InputGroup className='quantityControlDetail'>
                                 <Button variant="outline-secondary" onClick={() => decrementQuantity(id)}>-</Button>
-                                <FormControl value={quantity} readOnly />
+                                <FormControl className='quantityControl' value={quantity} readOnly />
                                 <Button variant="outline-secondary" onClick={() => incrementQuantity(id)}>+</Button>
                             </InputGroup>
                         </div>
-                    </Col>
-                    <Col md={6} className='text-end'>
-                        <Button variant='danger' onClick={() => removeItem(id)}>Eliminar</Button>
-                    </Col>
-                </Row>
-            </Card.Body>
+                        <div className='cartItemButton'>
+                            <Button variant='danger' onClick={() => removeItem(id)}>Eliminar</Button>
+                        </div>
+                    </Card.Body>
+                </Col>
+            </Row>
         </Card>
     );
 }

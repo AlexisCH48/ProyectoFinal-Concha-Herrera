@@ -1,0 +1,132 @@
+.cartContainer {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.titleCart {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2.5rem;
+}
+
+.titleCartEmpty{
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2.5rem;;
+}
+
+.buttonContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 60px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.buttonGroup-left {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+
+}
+
+.buttonGroup-right {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+#clearButton,
+.checkoutButton,
+.backButton {
+    width: auto;
+    max-width: 200px;
+    padding: 10px 15px;
+    font-size: 1rem;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3), 
+                2px 2px 5px rgba(0, 0, 0, 0.3);
+    transition: box-shadow 0.3s ease;
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5), 
+                -1px -1px 2px rgba(0, 0, 0, 0.5);
+    transition: text-shadow 0.3s ease;
+}
+
+#clearButton {
+    background-color: #dc3545;
+    border: none;
+}
+
+#clearButton:hover {
+    background-color: #c82333;
+}
+
+.checkoutButton {
+    background-color: #28a745;
+    border: none;
+}
+
+.checkoutButton:hover {
+    background-color: #218838;
+}
+
+.backButton {
+    background-color: #007bff;
+    border: none;
+}
+
+.backButton:hover {
+    background-color: #0056b3;
+}
+
+.total {
+    font-weight: bold;
+    margin: 5px 0;
+    text-align: center;
+    font-size: 1.7rem;
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.8), 
+                -1px -1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.cartContent {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(500px, 1fr)); /* Reducir el tamaño mínimo */
+    gap: 20px;
+    margin-top: 60px;
+    justify-content: center;
+}
+
+.singleItem {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.singleItem>div {
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+}
+
+
+
+@media (max-width: 768px) {
+    .cartContent {
+        grid-template-columns: 1fr;
+    }
+    
+    .cartItemGrid {
+        max-width: 100%;
+    }
+
+    .clearButton,
+    .checkoutButton,
+    .backButton {
+        width: 100%;
+        max-width: none;
+    }
+}

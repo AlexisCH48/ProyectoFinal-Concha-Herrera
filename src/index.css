@@ -6,11 +6,21 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  --primary-color: #2767b6;
+  --secondary-color: #009688;
+  --background-color: #f8f9fa;
+  --text-color: #f0f0f0;
+  --highlight-color: #009688;
+  --gradient-background: linear-gradient(120deg, #1a237e, #009688);
 }
 
-body{
-  background: linear-gradient(rgb(229, 246, 245), rgb(53, 117, 137));
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  color: aliceblue;
+body {
+  background: var(--gradient-background);
+  color: var(--text-color);
+  font-family: 'Arial', sans-serif;
+}
+
+.content {
+  margin-top: 50px;
+  padding: 1rem;
 }

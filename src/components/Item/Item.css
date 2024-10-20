@@ -1,83 +1,88 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans');
-
-.CardImg{
-    max-width: 100%;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
-
 .Card {
     position: relative;
     background: white;
     max-width: 500px;
-    margin: 0 auto;
-    margin-top: 40px;
+    margin: 10px auto;
     padding: 50px;
     border-radius: 20px;
-    filter: drop-shadow(
-        0 0 2px rgba(0, 0, 0, 0.302)
-    );
+    filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.302));
+}
+
+.Card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.CardImg {
+    max-width: 100%;
+    object-fit: cover;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
 
 .CardBody {
-    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    text-align: center;
 }
 
-.CardTitle{
-    padding: 0;
-    margin-top: 15px;
+.CardTitle {
+    font-size: 1.5rem;
     font-weight: bold;
-    text-align: center;
+    color: #333;
+    margin-bottom: 10px;
 }
 
 .CardTextContainer {
     display: flex;
-    justify-content: space-between; 
+    flex-direction: column;
     align-items: center;
-    padding-top: 15px;
+    margin-bottom: 15px;
 }
 
-.CardPrice, .CardStock {
-    margin: 0; 
-}
-
-.CardPrice {
-    color: #028ac8;
-    font-size: 1.30em;
-    font-weight: bold;
-}
-
+.CardPrice,
 .CardStock {
-    color: #425c69;
-    font-size: 1.25em;
-    font-weight: bolder;
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 10px;
 }
 
 .Option {
-    background: #46a2bf;
-    color: rgb(1, 47, 57);
-    width: 78%;
-    height: auto;
-    font-size: 1.15em;
-    font-weight: bold;
-    text-transform: uppercase;
-    margin: 25px auto 5px;
-    padding: 15px 80px;
-    border-radius: 50px;
-    cursor: pointer;
-    transition: 300ms;
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border-radius: 5px;
     text-decoration: none;
-    display: flex;
-    justify-content: center; 
-    align-items: center;
-    text-align: center;
-    padding-top: 15px;
+    transition: background-color 0.3s ease;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3), 
+                2px 2px 5px rgba(0, 0, 0, 0.3);
+    transition: box-shadow 0.3s ease;
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5), 
+                -1px -1px 2px rgba(0, 0, 0, 0.5);
+    transition: text-shadow 0.3s ease;
 }
 
 .Option:hover {
-    background: grey;
-    color: white;
-    transition: 300ms;
+    background-color: #218838;
+}
+
+
+@media (max-width: 768px) {
+    .Card {
+        max-width: 100%;
+    }
+
+    .CardTextContainer {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .CardPrice,
+    .CardStock {
+        margin-bottom: 5px;
+    }
 }

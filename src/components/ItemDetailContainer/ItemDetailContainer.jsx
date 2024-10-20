@@ -12,35 +12,41 @@ const ItemDetailContainer = () => {
 
     const { itemId } = useParams()
     console.log(itemId);
-    
-    useEffect(() => {
-        setLoading(true)
-        
-        const docRef = doc(db, 'products', itemId)
+    const [error, setError] = useState(null);
 
+    useEffect(() => {
+        setLoading(true);
+        setError(null);
+    
+        const docRef = doc(db, 'products', itemId);
+    
         getDoc(docRef)
-            .then(resp =>{
-                const data = resp.data()
-                const productAdapted = { id: resp.id, ...data}
-                setProduct(productAdapted)
+            .then(resp => {
+                const data = resp.data();
+                const productAdapted = { id: resp.id, ...data };
+                setProduct(productAdapted);
             })
             .catch(error => {
-                console.log(error);
+                console.error(error);
+                setError("Ocurrió un error al cargar el producto.");
             })
-            .finally(() =>{
-                setLoading(false)
-            })
+            .finally(() => {
+                setLoading(false);
+            });
     }, [itemId]);
+    
 
-    return(
-        <div>
-            {product ? <ItemDetail {...product}/> : 
+    return (
+        <>
+            {error ? <p className="error-text">{error}</p> : 
+                product ? <ItemDetail {...product} /> : 
                 <div className="loading">
                     <span className="loading-dots" data-dot="•">•</span>
                     <p className="loading-text">Cargando...</p>
                 </div>}
-        </div>
-    )
+        </>
+    );
+    
 }
 
 export default ItemDetailContainer

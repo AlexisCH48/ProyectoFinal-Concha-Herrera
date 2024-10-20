@@ -1,79 +1,71 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans');
-
 .CardDetail {
-    background: white;
-    padding: 50px;
-    border-radius: 20px;
-    position: relative; 
-    filter: drop-shadow(
-        0 0 2px rgba(0, 0, 0, 0.302)
-    );
+    max-width: 1500px;
+    margin: 20px auto;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    background-color: white;
+}
+
+.detailTitle{
+    text-align: center;
+    margin-top: 20px;
+    font-size: 2.5rem;
+}
+
+.backButton {
+    background-color: #007bff;
+    border: none;
+    font-size: 1em;
+    cursor: pointer;
+    margin: 15px;
+    transition: color 0.3s ease;
+    padding: 10px 20px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3), 
+                2px 2px 5px rgba(0, 0, 0, 0.3);
+    transition: box-shadow 0.3s ease;
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5), 
+                -1px -1px 2px rgba(0, 0, 0, 0.5);
+    transition: text-shadow 0.3s ease;
+}
+
+.backButton:hover {
+    background-color: #0056b3;
+}
+
+.CardBody {
+    padding: 40px;
 }
 
 .CardImgDetail {
     width: 100%;
     height: auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    border-radius: 15px;
 }
 
-.CardBody {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.CardBodyText{
-    color: black;
-    font-size: 15px;
-    margin: 0 0 47px 38px;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    display: flex;
-    justify-content: center;
-    text-align: center;
-}
-
-.CardTitleDetail{
+.CardTitleDetail {
     font-size: 2em;
     font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
 }
 
-.CardCategory{
-    font-size: 1.10em;
-    font-weight: bold;
+.CardCategory, .CardDescription, .CardPriceDetail {
+    font-size: 1.2em;
+    margin-bottom: 5px;
+    color: #666;
 }
 
-.CardDescription{
-    font-size: 1.10em;
-    font-weight: bold;
+.ItemCount {
+    margin-top: 15px;
 }
 
-.CardPriceDetail{
-    font-size: 1.30em;
-    font-weight: bold;
-}
+@media (max-width: 768px) {
+    .CardDetail {
+        margin: 10px;
+    }
 
-.back-button {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background-color: #46a2bf;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    border-radius: 15px;
-    display: flex;
-    align-items: center;
+    .CardBody {
+        padding: 15px;
+    }
 }
-
-.back-button:hover {
-    background-color: #0056b3;
-}
-
-.back-button svg {
-    margin-right: 8px;
-}
-

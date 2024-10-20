@@ -1,18 +1,29 @@
 import { useState } from 'react';
-import { Form, Button } from 'react-bootstrap';
+import { Form, Button, Alert } from 'react-bootstrap';
+import './CheckoutForm.css'; // Asegúrate de importar tu archivo CSS
 
 const CheckoutForm = ({ onConfirm }) => {
     const [name, setName] = useState('');
     const [phone, setPhone] = useState('');
     const [email, setEmail] = useState('');
+    const [error, setError] = useState('');
 
     const handleSubmit = (event) => {
         event.preventDefault();
+        
+        if (!name || !phone || !email) {
+            setError('Por favor, completa todos los campos.');
+            return;
+        }
+
+        setError('');
         onConfirm({ name, phone, email });
     };
 
     return (
-        <Form onSubmit={handleSubmit}>
+        <Form onSubmit={handleSubmit} className="checkoutForm">
+            {error && <Alert variant="danger">{error}</Alert>}
+
             <Form.Group controlId="formName">
                 <Form.Label>Nombre</Form.Label>
                 <Form.Control

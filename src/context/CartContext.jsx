@@ -28,7 +28,7 @@ export const CartProvider = ({ children }) => {
 
         if (!existingItem) {
             if (quantity <= availableStock) {
-                setCart(prev => [...prev, { ...item, quantity }]);
+                setCart(prev => [...prev, { ...item, quantity,}]);
             } else {
                 console.error('Cantidad solicitada excede el stock disponible');
             }
