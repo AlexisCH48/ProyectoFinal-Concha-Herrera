@@ -74,6 +74,9 @@ Para ejecutar este proyecto en tu máquina local, sigue estos pasos:
     ```sh
     npm run dev
     ```
+     ```sh
+    npm run build
+    ```
 
 6. **Visualiza en producción**:
     La aplicación está desplegada en [Netlify](https://super-mandazi-a24272.netlify.app/).
