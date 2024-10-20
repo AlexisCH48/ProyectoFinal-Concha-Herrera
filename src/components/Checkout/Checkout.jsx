@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import { toast } from 'react-toastify';
 
 const Checkout = () => {
     const [orderId, setOrderdId] = useState('');
@@ -48,10 +49,10 @@ const Checkout = () => {
                 setOrderdId(orderAdded.id);
                 clearCart();
             } else {
-                console.error('¡Productos fuera de stock!');
+                toast.error('¡Productos fuera de stock!');
             }
         } catch (error) {
-            console.log(error);
+            toast.log(error);
         } finally {
             setLoading(false);
         }

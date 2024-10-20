@@ -1,4 +1,5 @@
 import { createContext, useState, useEffect } from "react";
+import { toast } from "react-toastify";
 
 export const CartContext = createContext({
     cart: [],
@@ -28,16 +29,16 @@ export const CartProvider = ({ children }) => {
 
         if (!existingItem) {
             if (quantity <= availableStock) {
-                setCart(prev => [...prev, { ...item, quantity,}]);
+                setCart(prev => [...prev, { ...item, quantity }]);
             } else {
-                console.error('Cantidad solicitada excede el stock disponible');
+                toast.error('Cantidad solicitada excede el stock disponible');
             }
         } else {
             const newQuantity = existingItem.quantity + quantity;
             if (newQuantity <= availableStock) {
                 setCart(prev => prev.map(prod => prod.id === item.id ? { ...prod, quantity: newQuantity } : prod));
             } else {
-                console.error('Cantidad solicitada excede el stock disponible');
+                toast.error('Cantidad solicitada excede el stock disponible');
             }
         }
     };

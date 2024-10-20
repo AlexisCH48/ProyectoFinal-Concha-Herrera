@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Form, Button, Alert } from 'react-bootstrap';
-import './CheckoutForm.css'; // Asegúrate de importar tu archivo CSS
+import './CheckoutForm.css';
 
 const CheckoutForm = ({ onConfirm }) => {
     const [name, setName] = useState('');

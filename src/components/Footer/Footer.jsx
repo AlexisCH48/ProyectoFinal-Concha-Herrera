@@ -7,23 +7,23 @@ const Footer = () => {
     return (
         <footer className="footer">
             <Container>
-                <Row className='footer-row'>
-                    <Col md={4} className="footer-col">
-                        <h4 className="footer-title">TechnoWorld</h4>
+                <Row >
+                    <Col md={4} className="footerCol">
+                        <h4 className="footerTitle">TechnoWorld</h4>
                         <p>Tu tienda de confianza para productos tecnológicos de última generación.</p>
                     </Col>
-                    <Col md={4} className="footer-col">
-                        <h4 className="footer-title">Enlaces Rápidos</h4>
-                        <ul className="footer-links">
+                    <Col md={4} className="footerCol">
+                        <h4 className="footerTitle">Enlaces Rápidos</h4>
+                        <ul className="footerLinks">
                             <li><a href="/contact">Contacto</a></li>
                             <li><a href="/about">Acerca de Nosotros</a></li>
                             <li><a href="/privacy">Política de Privacidad</a></li>
                             <li><a href="/terms">Términos y Condiciones</a></li>
                         </ul>
                     </Col>
-                    <Col md={4} className="footer-col">
-                        <h4 className="footer-title">Síguenos</h4>
-                        <div className="footer-socials">
+                    <Col md={4} className="footerCol">
+                        <h4 className="footerYitle">Síguenos</h4>
+                        <div className="footerSocials">
                             <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
                                 <FontAwesomeIcon icon={faFacebook} />
                             </a>
@@ -38,7 +38,7 @@ const Footer = () => {
                 </Row>
                 <Row>
                     <Col className="text-center">
-                        <p className="footer-bottom">© 2023 TechnoWorld. Todos los derechos reservados.</p>
+                        <p className="footerBottom">© 2023 TechnoWorld. Todos los derechos reservados.</p>
                     </Col>
                 </Row>
             </Container>

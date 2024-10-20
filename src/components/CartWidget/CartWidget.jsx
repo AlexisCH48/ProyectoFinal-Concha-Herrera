@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom';
 
 const CartWidget = () => {
     const { totalQuantity } = useContext(CartContext);
-    console.log("Cantidad total en el carrito: ", totalQuantity);
 
     return (
         <Link to='/cart' className='cartWidget' style={{ display: totalQuantity > 0 ? 'flex' : 'none' }}>

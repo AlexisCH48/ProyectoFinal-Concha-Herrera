@@ -19,7 +19,7 @@ const ItemCount = ({ stock, initial, onAdd }) => {
 
     const handleAddToCart = () => {
         onAdd(quantity);
-        toast.success(`${quantity} Producto agregado al carrito!`);
+        toast.success(`${quantity} items added to cart!`);
     };
 
     return (

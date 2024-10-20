@@ -11,6 +11,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { CartContext } from '../../context/CartContext';
 import { useContext, useState } from 'react';
+import { toast } from 'react-toastify';
 
 const ItemDetail = ({ id, name, img, category, description, price, stock }) => {
     const [quantityAdded, setQuantityAdded] = useState(0);
@@ -24,10 +25,8 @@ const ItemDetail = ({ id, name, img, category, description, price, stock }) => {
             setQuantityAdded(quantity);
             const item = { id, name, price, stock };
             addItem(item, quantity);
-            console.log("Producto añadido: ", item);
-            console.log("Cantidad añadida: ", quantity);
         } else {
-            console.error('Cantidad solicitada excede el stock disponible');
+            toast.error('Cantidad solicitada excede el stock disponible');
         }
     };
 
@@ -59,6 +58,9 @@ const ItemDetail = ({ id, name, img, category, description, price, stock }) => {
                                     </div>
                                     <div className="p-2">
                                         <Card.Text className='CardPriceDetail'>Precio: ${price}</Card.Text>
+                                    </div>
+                                    <div className="p-2">
+                                        <Card.Text className='CardPriceDetail'>Stock: ${stock}</Card.Text>
                                     </div>
                                     <div className="p-2">
                                         <ItemCount className='CardItemCount' initial={1} stock={stock} onAdd={handleOnAdd} />
