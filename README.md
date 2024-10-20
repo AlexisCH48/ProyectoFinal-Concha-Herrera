@@ -48,7 +48,8 @@ Para ejecutar este proyecto en tu máquina local, sigue estos pasos:
 
 4. **Estuctura de la colección de Firebase**:
     Se sugiere crear un coleccion con el siguiente orden 
-    *colección*
+    
+    *coleccion*
     ```
     {
     "products"
