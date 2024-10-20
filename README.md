@@ -46,7 +46,30 @@ Para ejecutar este proyecto en tu máquina local, sigue estos pasos:
     VITE_appId=tu-app-id
     ```
 
-4. **Ejecuta la aplicación**:
+4. **Estuctura de la colección de Firebase**:
+    Se sugiere crear un coleccion con el siguiente orden 
+    *colección*
+    ```
+    {
+    "products"
+    }
+    ```
+    *campos*
+    ```
+    { 
+    "name": "***",
+    "img": ****
+    "price": "****",
+    "stock": "****"
+    "category": "****"
+    "description": "****"
+    }
+    ```
+
+
+
+
+5. **Ejecuta la aplicación**:
     ```sh
     npm start
     ```
@@ -55,8 +78,8 @@ Para ejecutar este proyecto en tu máquina local, sigue estos pasos:
     npm run dev
     ```
 
-5. **Visualiza en producción**:
-    La aplicación está desplegada en [Netlify](https://tu-nombre-de-netlify.netlify.app).
+6. **Visualiza en producción**:
+    La aplicación está desplegada en [Netlify](https://super-mandazi-a24272.netlify.app/).
 
 ## Autor
 
